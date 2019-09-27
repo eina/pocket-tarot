@@ -1,8 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const CardsInfo = ({ cards }) => {  
+  
+  const [showCard, setShowCard] = useState(false);
+  
+  const flipCard = () => setShowCard(true);
             
-  return (        
+  if(!showCard) {
+    return (
+      <div className="spread-selector">
+        <button onClick={flipCard}>Show Card Description{cards.length > 1 ? 's' : ''}</button>
+      </div>
+    )
+  }
+  return(        
     <div className="cards-info">
       {cards.map(tarot => {
           const { name, name_short, desc, meaning_rev, meaning_up } = tarot;          
