@@ -1,33 +1,111 @@
-.App {
+body {
+  background-color: #0e061c;
+  color: #d9d4d7;
+  font-family: 'Karla', sans-serif;    
+}
+
+a {
+  color: #fffade;
+  font-weight: 700;
+  font-style: normal;    
+}
+
+a:hover, a:focus {
+  color: #e8d5b5;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Mono', monospace;
+}
+
+
+header, 
+h2,
+.spread-selector,
+footer {  
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+h3 {    
+  font-size: 150%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+h3,
+.text-underline {
+  color: #bea6a1;
+}
+
+button {  
+  padding: 12px 10px;
+  border: 2px solid #00e6be;
+  border-radius: 5px;
+  background: none;  
+  color: #00e6be;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 150%;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  border-color: #00b498;
+  color: #00b498
+}
+
+
+.spread-selector button {
+  margin: 5px;
+}
+
+.card-grid {  
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-flow: row nowrap;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: flex-end;
+  margin: 2em 0;
+  padding: 1.5em;
+  background-color: #15092a;  
 }
 
-.App-link {
-  color: #61dafb;
+.card {  
+  width: 250px;  
+  margin: 10px;
+/*   color: #3f4153; */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card__image {
+  width: 100%;
+  height: auto;
 }
+
+.card__caption {
+  text-align: center;
+}
+
+.card--upright {
+  transform: rotate(0);
+}
+
+.card--reversed {
+  transform: rotate(-180deg);
+}
+
+.cards-info {  
+  width: 85%;
+  margin: 0 auto;
+  padding: 0 1em;    
+}
+
+@media (min-width: 1024px) {
+  .cards-info {
+    width: 45%;
+  }    
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+
+

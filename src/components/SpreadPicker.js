@@ -3,6 +3,7 @@ import { _cards, _shuffle } from '../data/cardTest.js';
 // import axios from 'axios';
 
 import Spread from './Spread';
+import CardsInfo from './CardsInfo';
 
 class SpreadPicker extends Component {
   constructor(props) {
@@ -66,17 +67,24 @@ class SpreadPicker extends Component {
       <div>
         
         { !this.state.hasSpread && !cards ? 
-          (<div>
-            <button name="one-card" value="1" onClick={e => this.chooseSpread(e)}>One Card Spread</button>
-            <button name="two-card" value="2" onClick={e => this.chooseSpread(e)}>Two Card Spread</button>
-            <button name="three-card" value="3" onClick={e => this.chooseSpread(e)}>Three Card Spread</button>
+          (<div className="spread-selector">
+            <button name="one-card" value="1" onClick={e => this.chooseSpread(e)}>One Card</button>
+            <button name="two-card" value="2" onClick={e => this.chooseSpread(e)}>Two Cards</button>
+            <button name="three-card" value="3" onClick={e => this.chooseSpread(e)}>Three Card</button>
           </div>)
           :
         (
-          <React.Fragment>
-            <button onClick={this.refreshSpread}>Choose a different spread?</button>
-            <h2>{spreadType} Card Spread</h2>
-            <Spread cards={cards}/>
+          <React.Fragment>            
+            
+            <Spread cards={cards} />
+            
+            <h2>✨{spreadType} Card Spread ✨</h2>            
+            
+            <CardsInfo cards={cards} />
+            
+            <div className="spread-selector">
+              <button onClick={this.refreshSpread}>Choose a different spread?</button>
+            </div>
           </React.Fragment>
         )
         }
