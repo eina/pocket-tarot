@@ -66,27 +66,26 @@ class SpreadPicker extends Component {
     return (
       <div>
         
-        { !this.state.hasSpread && !cards ? 
+        { 
+          !this.state.hasSpread && !cards ? 
           (<div className="spread-selector">
             <button name="one-card" value="1" onClick={e => this.chooseSpread(e)}>One Card</button>
             <button name="two-card" value="2" onClick={e => this.chooseSpread(e)}>Two Cards</button>
             <button name="three-card" value="3" onClick={e => this.chooseSpread(e)}>Three Card</button>
           </div>)
           :
-        (
-          <React.Fragment>            
-            
-            <Spread cards={cards} />
-            
-            <h2>✨{spreadType} Card Spread ✨</h2>            
-            
-            <CardsInfo cards={cards} />
-            
-            <div className="spread-selector">
-              <button onClick={this.refreshSpread}>Choose a different spread?</button>
-            </div>
-          </React.Fragment>
-        )
+          (
+            <React.Fragment>            
+              <div className="spread-selector"><button className="button--text"onClick={this.refreshSpread}>Choose a different spread?</button></div>
+
+              <Spread cards={cards} />
+
+              <h2>✨{spreadType} Card Spread ✨</h2>            
+
+              <CardsInfo cards={cards} />
+
+            </React.Fragment>
+          )
         }
                 
       </div>
