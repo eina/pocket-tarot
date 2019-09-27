@@ -3,6 +3,7 @@ dependencies:
   react: 16.8.6
   react-dom: 16.8.6
   react-scripts: 3.0.1
+  sanitize.css: 11.0.0
 packages:
   /@babel/code-frame/7.0.0:
     dependencies:
@@ -9255,6 +9256,10 @@ packages:
     hasBin: true
     resolution:
       integrity: sha512-hhbzAgTIX8O7SHfp2c8/kREfEn4qO/9q8C9beyY6+tvZ87EpoZ3i1RIEvp27YBswnNbY9mWd6paKVmKbAgLfZA==
+  /sanitize.css/11.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-Ox0X2lk0kOGeODJgT9S9HFv0j5Cz89ir9ILylj62/vejHPdMmahmetfocoQwyiAnseeXyDa+KIbO6ZQJe5n2Lg==
   /sass-loader/7.1.0/webpack@4.29.6:
     dependencies:
       clone-deep: 2.0.2
@@ -10948,3 +10953,4 @@ specifiers:
   react: ^16.8.6
   react-dom: ^16.8.6
   react-scripts: ^3.0.1
+  sanitize.css: ^11.0.0

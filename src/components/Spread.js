@@ -1,21 +1,24 @@
 import React from 'react';
+import { _shuffle } from '../data/cardTest';
+import Card from './Card';
 
 const Spread = ({ cards }) => {  
-  
-  console.log('what are these', cards)
-    
-  return cards.map(tarot => {
-    const { name, name_short, desc, meaning_rev, meaning_up } = tarot;
-    
-    return (
-      <div key={name_short}>
-        <h3>{name}</h3>        
-        <p>Description: {desc}</p>  
-        <p>Reversed: {meaning_rev}</p>
-        <p>Upright: {meaning_up}</p>
-      </div>
-    )
-  })
+            
+  return (    
+      <div className="card-grid">
+        {cards.map(tarot => {
+          const { name, name_short, desc, meaning_rev, meaning_up } = tarot;
+          const cardOrientation = _shuffle(['upright', 'reversed']);          
+
+          return <Card 
+                   name={name}
+                   shortName={name_short}
+                   key={name_short} 
+                   orientation={cardOrientation[0]} 
+                />
+        })}                  
+    </div>        
+  )
 }
 
 export default Spread;
