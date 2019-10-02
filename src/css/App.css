@@ -1,32 +1,34 @@
 body {
   background-color: #0e061c;
   color: #d9d4d7;
-  font-family: 'Karla', sans-serif;    
+  font-family: "Karla", sans-serif;
 }
 
 a {
   color: #fffade;
   font-weight: 700;
-  font-style: normal;    
+  font-style: normal;
 }
 
-a:hover, a:focus {
+a:hover,
+a:focus {
   color: #e8d5b5;
 }
 
-h1, h2, h3 {
-  font-family: 'Space Mono', monospace;
+h1,
+h2,
+h3 {
+  font-family: "Space Mono", monospace;
 }
 
-
-header, 
+header,
 h2,
 .spread-selector,
-footer {  
+footer {
   text-align: center;
 }
 
-h3 {    
+h3 {
   font-size: 150%;
 }
 
@@ -35,13 +37,13 @@ h3,
   color: #bea6a1;
 }
 
-button {  
+button {
   padding: 12px 10px;
   border: 2px solid #00e6be;
   border-radius: 5px;
-  background: none;  
+  background: none;
   color: #00e6be;
-  font-family: 'Space Mono', monospace;
+  font-family: "Space Mono", monospace;
   font-weight: 700;
   font-size: 150%;
 }
@@ -50,48 +52,52 @@ button:hover,
 button:focus {
   cursor: pointer;
   border-color: #00b498;
-  color: #00b498
+  color: #00b498;
 }
 
-.button--text {  
+.button--text {
   border: none;
-  font-size: 100%;  
+  font-size: 100%;
 }
 
 .spread-selector button {
   margin: 5px;
 }
 
-.card-grid {  
+.card-grid {
   display: flex;
-  flex-flow: row nowrap;  
-  align-items: flex-end;  
+  align-items: flex-end;
+  justify-content: center;
   margin: 2em 0;
-  padding: 1.5em;
-  background-color: #15092a;      
+  padding: 1.5em 0;
+  background-color: #15092a;
   overflow: auto;
 }
 
-@media (min-width: 1024px) {
-  .card-grid {  
+.card-grid--expand {
+  justify-content: flex-start;
+}
+
+@media (min-width: 870px) {
+  .card-grid--expand {
     justify-content: center;
   }
 }
 
 .card-flipper,
-.card {  
-  width: 250px;  
-  min-height: 450px;  
-/*   color: #3f4153; */
+.card {
+  width: 250px;
+  min-height: 450px;
+  /*   color: #3f4153; */
 }
 
 .card-flipper {
   margin: 0 20px;
 }
 
-.card__back {  
-  background-color: #0a020c;  
-  background-image: url("https://cdn.glitch.com/548def02-469d-44ec-b308-07a46b817f4c%2Fblack-thread-light.png?v=1569572351466");    
+.card__back {
+  background-color: #0a020c;
+  background-image: url("https://cdn.glitch.com/548def02-469d-44ec-b308-07a46b817f4c%2Fblack-thread-light.png?v=1569572351466");
   border: 1px solid #0a020c;
   border-radius: 15px;
 }
@@ -113,16 +119,16 @@ button:focus {
   transform: rotateX(-180deg);
 }
 
-.cards-info {  
+.cards-info {
   width: 85%;
   margin: 0 auto;
-  padding: 0 1em;    
+  padding: 0 1em;
 }
 
 @media (min-width: 1024px) {
   .cards-info {
     width: 45%;
-  }    
+  }
 }
 
 .text-underline {
@@ -131,29 +137,29 @@ button:focus {
 
 /* card flipping shenanigans  */
 .flip-container {
-	perspective: 1000px;    
+  perspective: 500px;
   text-align: center;
 }
 
 .flip-container.flipped .card-flipper {
-		transform: rotateY(180deg);
+  transform: rotateY(180deg);
 }
 
 .card-flipper {
   margin-bottom: 1em;
-	transition: 0.4s;
-	transform-style: preserve-3d;
+  transition: 0.4s;
+  transform-style: preserve-3d;
 
-	position: relative;
+  position: relative;
 }
 
 .card__back,
 .card__front {
   backface-visibility: hidden;
 
-	position: absolute;
-	top: 0;
-	left: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .card__back {
@@ -162,5 +168,5 @@ button:focus {
 }
 
 .card__front {
-  transform: rotateY(180deg)
+  transform: rotateY(180deg);
 }

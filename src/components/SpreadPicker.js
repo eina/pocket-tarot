@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { _cards, _shuffle } from '../data/cardTest.js';
-// import axios from 'axios';
+import axios from 'axios';
 
 import Spread from './Spread';
 import CardsInfo from './CardsInfo';
@@ -22,22 +22,22 @@ class SpreadPicker extends Component {
   
   chooseSpread(e) {        
     const cardAmount = e.target.value;
-    const shuffledCards = _shuffle(_cards); // for dev/offline testing only
-    const spreadRequest = `https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=` + cardAmount
-    console.log('url to query', spreadRequest)
+    // const shuffledCards = _shuffle(_cards); // for dev/offline testing only
+    const spreadRequest = `https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=` + cardAmount    
     
     /* FOR PRODUCTION */
-    // this.fetchDeck().then(cards => this.setState({ 
-    //   cards: cards.data.cards,
-    //   hasSpread: true
-    // }));
+     this.fetchDeck(spreadRequest).then(cards => this.setState({ 
+       cards: cards.data.cards,
+       hasSpread: true,
+       spreadType: cardAmount
+     }));
     
-    /* FOR DEV */    
-    this.setState({ 
-      hasSpread: true,  
-      cards: shuffledCards.slice(0, cardAmount),
-      spreadType: cardAmount
-    })
+    // /* FOR DEV */    
+    // this.setState({ 
+    //   hasSpread: true,  
+    //   cards: shuffledCards.slice(0, cardAmount),
+    //   spreadType: cardAmount
+    // })        
   }
   
   refreshSpread(){
@@ -48,10 +48,10 @@ class SpreadPicker extends Component {
     })
   }
       
-  async fetchDeck(){
-    try {      
-      // const cards = await axios.get('https://cors-anywhere.herokuapp.com/https://rws-cards-api.herokuapp.com/api/v1/cards/random?n=10');            
-      // return cards;
+  async fetchDeck(url){
+    try {            
+      const cards = await axios.get(`https://cors-anywhere.herokuapp.com/${url}`);
+      return _shuffle(cards);
     }
     catch(error) {
       console.log(error);
@@ -78,9 +78,9 @@ class SpreadPicker extends Component {
             <React.Fragment>            
               <div className="spread-selector"><button className="button--text"onClick={this.refreshSpread}>Choose a different spread?</button></div>
 
-              <Spread cards={cards} />
+              <Spread cards={cards} cardAmt={spreadType} />
 
-              <h2>✨{spreadType} Card Spread ✨</h2>            
+              <h2>✨ {spreadType} Card Spread ✨</h2>            
 
               <CardsInfo cards={cards} />
 
